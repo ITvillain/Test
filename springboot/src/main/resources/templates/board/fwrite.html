@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>board/fwrite title</title>
+	</head>
+	<body>
+		board/fwrite.html
+		<form th:action="@{/fboardwrite}" method="post" enctype="multipart/form-data">
+			<table border="1">
+				<tr><td>이름</td>
+					<td><input type="text" name="name" th:value="${session.id}"></td></tr>
+				<tr><td>제목</td>
+					<td><input type="text" name="subject"></td></tr>
+				<tr><td>내용</td>
+					<td><textarea name="content" rows="5" cols="10"></textarea></td></tr>
+				<tr><td>파일</td>
+					<td><input type="file" name="file"></td></tr>
+				<tr><td colspan="2">
+					<input type="submit" value="글쓰기"></td></tr>
+			</table>
+		</form>
+	</body>
+</html>

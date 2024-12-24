@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>delete title</title>
+	</head>
+	<body>
+		delete.html
+		<form th:action="@{/delete}" method="post">
+			아이디 : <input type="text" name="id" th:value="${session.id}" readonly><br>
+			비밀번호 : <input type="password" name="pass"><br>
+			<input type="submit" value="회원정보 삭제">
+		</form>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>info title</title>
+	</head>
+	<body>
+		<h1>info.html</h1>
+		아이디 : <span th:text="${member.id}"></span><br>
+		비밀번호 : <span th:text="${member.pass}"></span><br>
+		이름 : <span th:text="${member.name}"></span><br>
+		가입날짜 : <span th:text="${member.date}"></span><br>
+		<a href="/main">main 이동</a>
+	</body>
+</html>

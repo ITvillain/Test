@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>content title</title>
+	</head>
+	<body>
+		<h1>board/content.html</h1>
+		글번호 : <span th:text="${board.num}"></span><br>
+		글쓴이 : <span th:text="${board.name}"></span><br>
+		글제목 : <span th:text="${board.subject}"></span><br>
+		글내용 : <span th:text="${board.content}"></span><br>
+		조회수 : <span th:text="${board.readcount}"></span><br>
+		가입날짜 : <span th:text="${board.date}"></span><br>
+		파일 : <span><a th:href="${board.file}" th:text="${board.file}" download></span><br>
+		<span th:if="${session.id == board.name}">
+			<a th:href="@{/boardupdate(num=${board.num})}" th:text="글수정"></a><br>
+			<a th:href="@{/boarddelete(num=${board.num})}" th:text="글삭제"></a><br>
+		</span>
+		<a href="/boardlist">글목록 이동</a>
+	</body>
+</html>

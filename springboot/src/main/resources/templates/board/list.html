@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>board/list title</title>
+	</head>
+	<body>
+		<h1>board/list.html</h1>
+		<table border="1">
+			<tr><td>글번호</td><td>글제목</td>
+				<td>글쓴이</td><td>조회수</td><td>가입날짜</td></tr>
+			
+			<tr th:each="board,status:${boardList}">
+				<td th:text="${board.num}"></td>				
+				<td>
+					<a th:href="@{/boardcontent(num=${board.num})}"
+				 th:text="${board.subject}"></a>				
+				<td th:text="${board.name}"></td>			
+				<td th:text="${board.readcount}"></td>			
+				<td th:text="${board.date}"></td>			
+			</tr>
+		</table>
+		
+		<a th:href="@{/boardlist(page=${currentPage-1})}" th:if="${currentPage > 1}" th:text="이전"></a>
+		
+<!--		<a th:href="@{/boardlist(page=1)}" th:text="1"></a>-->
+<!--		<a th:href="@{/boardlist(page=2)}" th:text="2"></a>-->
+
+<!--	startPage ~ endPage 1 2 3 4 5 -->
+<!--	#numbers.sequence(startPage,endPage) http://www.thymeleaf.org => numbes.sequence(시작, 끝)-->
+	<span th:each="page:${#numbers.sequence(startPage,endPage)}">
+		<span th:if="${page == currentPage}" th:text="${page}"></span>
+		<span th:unless="${page == currentPage}">
+			<a th:href="@{/boardlist(page=${page})}" th:text="${page}"></a>
+		</span>
+	</span>	
+
+		<a th:href="@{/boardlist(page=${currentPage-1})}" th:if="${currentPage < 1}" th:text="다음"></a>
+		
+	</body>
+</html>
+

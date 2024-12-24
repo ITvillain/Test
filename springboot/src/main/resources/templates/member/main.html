@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>main title</title>
+	</head>
+	<body>
+		<h1>main.html</h1>
+		<span th:text="${session.id} + '님 로그인 '"></span><a href="/logout">로그아웃</a><br>
+		<a href="/info">나의 정보 조회</a><br>
+		<a href="/update">나의 정보 수정</a><br>
+		<a href="/delete">나의 정보 삭제</a><br>
+		
+		<a href="/list">회원목록</a><br>
+		
+		<a href="/boardwrite">게시판 글쓰기</a><br>
+		<a href="/boardlist">게시판 목록</a><br>
+		
+		<a href="/fboardwrite">파일게시판 글쓰기</a><br>
+	</body>
+</html>

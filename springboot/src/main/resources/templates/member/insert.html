@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>insert title</title>
+	</head>
+	<body>
+		insert.html
+		<form th:action="@{/insert}" method="post">
+			아이디 : <input type="text" name="id"><br>
+			비밀번호 : <input type="password" name="pass"><br>
+			이름 : <input type="text" name="name"><br>
+			<input type="submit" value="회원가입">
+			<input type="hidden" th:name="${_csrf?.parameterName}"
+								th:value="${_csrf?.token}">
+<!--			CSRF(Cross Site Request Forgery) 공격-->
+<!--			: 크로스사이트 요청 위조 공격-->
+<!--			: 사용자 의지와 무관하게 공격자의 의도대로 서버에 특정 요청-->
+			
+		</form>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF=8">
+		<title>list title</title>
+	</head>
+	<body>
+		<h1>list.html</h1>
+		
+		<table border="1">
+			<tr th:each="member,status:${memberList}">
+				<td th:text="${member.id}">아이디</td>				
+				<td th:text="${member.pass}">비밀번호</td>				
+				<td th:text="${member.name}">이름</td>			
+				<td th:text="${member.date}">가입날짜</td>			
+			</tr>
+		</table>
+		
+	</body>
+</html>

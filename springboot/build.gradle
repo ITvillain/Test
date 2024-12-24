@@ -1,0 +1,73 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.0'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.itwillbs'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+	// https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+// https://mvnrepository.com/	=> Gradle Short
+	
+// 1) https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+// 2) 주의! => gradle restart
+
+// 3) Window - preferences - General - Workspace - build - Build automatically
+
+// 4) 크롬 - 확장프로그램 관리하기 - Chrome 웹 스토어 - Live reload
+
+// 5) application.properties 설정
+//	spring.devtools.restart.enabled=true
+//	spring.devtools.livereload.enabled=true
+//	spring.thymeleaf.cache=false
+
+//springsecurity
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+implementation 'org.springframework.boot:spring-boot-starter-security'
+
+// https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+// https://mvnrepository.com/artifact/org.springframework.security/spring-security-test
+testImplementation 'org.springframework.security:spring-security-test'
+
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
